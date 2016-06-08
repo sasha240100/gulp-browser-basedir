@@ -19,7 +19,7 @@ var browserify = function (transforms) {
             cb(null, file);
         };
         if (file.contents.length > 0) {
-            var browserified_1 = plugins.browserify(file, { basedir: file.base });
+            var browserified_1 = plugins.browserify(file, { basedir: transform.basedir ?  transform.basedir : file.base });
             transforms.forEach(function (transform) {
                 if (typeof transform === 'function') {
                     browserified_1.transform(transform);
